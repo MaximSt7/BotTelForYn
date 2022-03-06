@@ -1,0 +1,15 @@
+import logging
+from aiogram import Bot, Dispatcher, executor, types, md
+ 
+TOKEN = '' #Токен телеграм.
+ 
+bot = Bot(token=TOKEN)
+leem = Dispatcher(bot)
+logging.basicConfig(level=logging.INFO)
+ 
+@dp.message_handler(commands=['start'])
+async def start_reg(message: types.Message):
+    await message.answer(message.text) #Дублирование сообщений.
+ 
+if __name__ == '__main__':
+    executor.start_polling(leem, skip_updates=True)
